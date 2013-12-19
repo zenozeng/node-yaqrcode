@@ -1,10 +1,13 @@
-# qr-gen
+# yanode-qrcode
 
-Pure Javascript QR Code Generator for NodeJS
+Yet another node-qrcode Generator!
 
-This is a simple wrapper of the QR Code Generator from the d-project.
+This is a simple and pure javascript wrapper for the QR Code Generator from the d-project.
 
+No Canvas or Binary needed!
  
+Note: 
+
 ```
 The word 'QR Code' is registered trademark of
 DENSO WAVE INCORPORATED
