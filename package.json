@@ -1,5 +1,5 @@
 {
-    "name": "qrcode",
+    "name": "yaqrcode",
     "description": "Yet another node-qrcode Generator! Simple and pure javascript!",
     "version": "0.0.1",
     "author": "Zeno Zeng <zenoofzeng@gmail.com>",
