@@ -1,0 +1,15 @@
+{
+    "name": "qrcode",
+    "description": "Yet another node-qrcode Generator! Simple and pure javascript!",
+    "version": "0.0.1",
+    "author": "Zeno Zeng <zenoofzeng@gmail.com>",
+    "keywords": [
+        "qrcode",
+        "qr"
+    ],
+    "homepage": "http://github.com/zenozeng/node-yaqrcode",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/zenozeng/node-yaqrcode"
+    }
+}

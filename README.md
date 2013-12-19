@@ -1,4 +1,4 @@
-# yanode-qrcode
+# node-yaqrcode
 
 Yet another node-qrcode Generator!
 
