@@ -1125,13 +1125,14 @@ exports.qrcode = function() {
 
             // Fix Unicode corruption bug
             _parsedData.push(byteArray);
-            _parsedData = Array.prototype.concat.apply([], _parsedData);
+	}
 
-	    if (_parsedData.length != _data.length) {
-		_parsedData.unshift(191);
-		_parsedData.unshift(187);
-		_parsedData.unshift(239);
-	    }
+        _parsedData = Array.prototype.concat.apply([], _parsedData);
+
+	if (_parsedData.length != _data.length) {
+	    _parsedData.unshift(191);
+	    _parsedData.unshift(187);
+	    _parsedData.unshift(239);
 	}
 
 	var _bytes = _parsedData;
@@ -1577,23 +1578,8 @@ exports.qrcode = function() {
 		base64.flush();
 
 		var img = '';
-		img += '<img';
-		img += '\u0020src="';
 		img += 'data:image/gif;base64,';
 		img += base64;
-		img += '"';
-		img += '\u0020width="';
-		img += width;
-		img += '"';
-		img += '\u0020height="';
-		img += height;
-		img += '"';
-		if (alt) {
-			img += '\u0020alt="';
-			img += alt;
-			img += '"';
-		}
-		img += '/>';
 
 		return img;
 	};

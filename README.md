@@ -34,6 +34,11 @@ data:image/gif;base64,R0lGODdhggCCAIAAAAAAAP///ywAAAAAggCCAAAC/4yPqcvtD6OctNqLs9
 npm install yaqrcode
 ```
 
+```
+qrcode = require('qrcode');
+base64 = qrcode('hello world', 10)
+```
+
 ## License
 
 The MIT License (MIT)

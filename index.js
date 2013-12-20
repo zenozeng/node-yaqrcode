@@ -1,10 +1,19 @@
 var qrcode = require('./qrcode.js').qrcode;
-module.exports = function(text, typeNumber, errorCorrectLevel) {
-    var qr = qrcode(typeNumber || 10, errorCorrectLevel || 'M');
-    qr.addData(text);
-    qr.make();
-    var base64 = qr.createImgTag();
-    base64 = base64.split(' ');
-    base64 = base64[1].split('"');
-    return base64[1];
+var gen = function(text, errorCorrectLevel, typeNumber) {
+    typeNumber = typeNumber || 4
+    var qr;
+    try {
+        qr = qrcode(typeNumber, errorCorrectLevel || 'M');
+        qr.addData(text);
+        qr.make();
+    } catch (e) {
+        if(typeNumber >= 40) {
+            throw new Error('Text too long to encode');
+        } else {
+            return gen(text, errorCorrectLevel, typeNumber+1);
+        }
+    }
+    return qr.createImgTag();
 }
+
+module.exports = gen;
