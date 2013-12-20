@@ -36,7 +36,7 @@ npm install yaqrcode
 
 ```
 qrcode = require('qrcode');
-base64 = qrcode('hello world', 10)
+base64 = qrcode('hello world', 'M')
 ```
 
 ## License
