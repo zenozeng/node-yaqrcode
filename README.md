@@ -5,8 +5,8 @@ Yet another node-qrcode Generator!
 This is a simple and pure javascript wrapper for the QR Code Generator from the d-project.
 
 No Canvas or Binary needed!
- 
-Note: 
+
+Note:
 
 ```
 The word 'QR Code' is registered trademark of
@@ -34,16 +34,25 @@ data:image/gif;base64,R0lGODdhggCCAIAAAAAAAP///ywAAAAAggCCAAAC/4yPqcvtD6OctNqLs9
 npm install yaqrcode
 ```
 
-```
+```javascript
 qrcode = require('qrcode');
-base64 = qrcode('hello world', 'M')
+base64 = qrcode('hello world');
+```
+
+### custom size
+
+```javascript
+qrcode = require('qrcode');
+base64 = qrcode('hello world', {
+    size: 500
+});
 ```
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Zeno Zeng
+Copyright (c) 2013,2015 Zeno Zeng
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

@@ -1,7 +1,13 @@
-var qrcode = require('./qrcode.js').qrcode;
-var gen = function(text, errorCorrectLevel, typeNumber) {
-    typeNumber = typeNumber || 4
+var qrcode = require('./qrcode.js');
+
+var gen = function(text, options) {
+    options = options || {};
+    var typeNumber = options.typeNumber || 4;
+    var errorCorrectLevel = options.errorCorrectLevel || 'M';
+    var size = options.size || 500;
+
     var qr;
+
     try {
         qr = qrcode(typeNumber, errorCorrectLevel || 'M');
         qr.addData(text);
@@ -13,7 +19,12 @@ var gen = function(text, errorCorrectLevel, typeNumber) {
             return gen(text, errorCorrectLevel, typeNumber+1);
         }
     }
-    return qr.createImgTag();
-}
+
+    // calc cellsize and margin
+    var cellsize = parseInt(size / qr.getModuleCount());
+    var margin = parseInt((size - qr.getModuleCount() * cellsize) / 2);
+
+    return qr.createImgTag(cellsize, margin, size);
+};
 
 module.exports = gen;
