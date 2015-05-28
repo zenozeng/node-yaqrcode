@@ -17,6 +17,7 @@ var gen = function(text, options) {
             throw new Error('Text too long to encode');
         } else {
             return gen(text, {
+                size: size,
                 errorCorrectLevel: errorCorrectLevel,
                 typeNumber: typeNumber + 1
             });
