@@ -35,14 +35,14 @@ npm install yaqrcode
 ```
 
 ```javascript
-qrcode = require('qrcode');
+qrcode = require('yaqrcode');
 base64 = qrcode('hello world');
 ```
 
 ### custom size
 
 ```javascript
-qrcode = require('qrcode');
+qrcode = require('yaqrcode');
 base64 = qrcode('hello world', {
     size: 500
 });
