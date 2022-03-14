@@ -4,12 +4,13 @@ var gen = function(text, options) {
     options = options || {};
     var typeNumber = options.typeNumber || 4;
     var errorCorrectLevel = options.errorCorrectLevel || 'M';
+    var maskPattern = options.maskPattern || undefined;
     var size = options.size || 500;
 
     var qr;
 
     try {
-        qr = qrcode(typeNumber, errorCorrectLevel || 'M');
+        qr = qrcode(typeNumber, errorCorrectLevel || 'M', maskPattern);
         qr.addData(text);
         qr.make();
     } catch (e) {

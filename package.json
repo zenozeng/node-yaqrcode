@@ -14,5 +14,9 @@
     "repository": {
         "type": "git",
         "url": "git://github.com/zenozeng/node-yaqrcode"
+    },
+    "dependencies": {
+        "istanbul": "^0.4.5",
+        "mocha": "^9.2.2"
     }
 }

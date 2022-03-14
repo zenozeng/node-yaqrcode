@@ -9,4 +9,25 @@ describe('QRCode', function() {
 
         assert.equal(qrcode('bitcoin:55162b4f35dc8fe637372ac1?amount=0.55169320&label=Order#18'), code);
     });
+
+    it('should allow override of mask pattern', function() {
+        const input = '1234';
+
+        // One of the result patterns should match the auto-selected one:
+        const defaultCode = qrcode(input, { maskPattern: null });
+        const patterns = [];
+
+        // Ensure, for each possible value of maskPattern, that the next maskPattern
+        // value always generates a different QR to the previous:
+        let last = qrcode(input, { maskPattern: 0 });
+        for (let i = 1; i < 8; i++) {
+            const result = qrcode(input, { maskPattern: i });
+            assert.notEqual(last, result);
+            patterns.push(result);
+            last = result;
+        }
+
+        // Ensure one and only one of the generated patterns matches the auto-selected one:
+        assert.equal(patterns.map(p => p === defaultCode).filter(Boolean).length, 1);
+    });
 });

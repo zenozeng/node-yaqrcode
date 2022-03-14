@@ -24,13 +24,14 @@
  * @param typeNumber 1 to 40
  * @param errorCorrectLevel 'L','M','Q','H'
  */
-var qrcode = function(typeNumber, errorCorrectLevel) {
+var qrcode = function(typeNumber, errorCorrectLevel, forcedMaskPattern) {
 
     var PAD0 = 0xEC;
     var PAD1 = 0x11;
 
     var _typeNumber = typeNumber;
     var _errorCorrectLevel = QRErrorCorrectLevel[errorCorrectLevel];
+    var _forcedMaskPattern = forcedMaskPattern !== undefined ? Math.abs(forcedMaskPattern) % 8 : undefined;
     var _modules = null;
     var _moduleCount = 0;
     var _dataCache = null;
@@ -399,7 +400,7 @@ var qrcode = function(typeNumber, errorCorrectLevel) {
     };
 
     _this.make = function() {
-	makeImpl(false, getBestMaskPattern() );
+	makeImpl(false, _forcedMaskPattern === undefined ? getBestMaskPattern() : _forcedMaskPattern );
     };
 
     _this.createTableTag = function(cellSize, margin) {
