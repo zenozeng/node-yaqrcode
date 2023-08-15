@@ -3,6 +3,7 @@
     "description": "Yet another node-qrcode Generator! Simple and pure javascript!",
     "version": "0.2.1",
     "author": "Zeno Zeng <zenoofzeng@gmail.com>",
+    "license": "MIT",
     "scripts": {
         "test": "istanbul cover _mocha"
     },
